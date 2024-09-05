@@ -25,9 +25,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <Provider store={store} >
     <ApolloProvider client={client}>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
-    <ThemeProvider>
+    {/* <ThemeProvider> */}
       <App />
-    </ThemeProvider>
+    {/* </ThemeProvider> */}
     </ClerkProvider>
     </ApolloProvider>
     </Provider>

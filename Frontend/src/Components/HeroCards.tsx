@@ -57,7 +57,7 @@ const HomeCards: React.FC = () => {
               <h6 className="font-bold">Lorem ipsum</h6>
               <p className="text-sm text-gray-400 mb-2">Lorem ipsum</p>
               <div className="relative h-[85px] w-[85px] mx-auto flex items-center justify-center">
-                <h4 className="text-green-400 text-4xl font-bold">75%</h4>
+                <h4 className="text-green-400  text-4xl font-bold">75%</h4>
                 <div
                   className="absolute h-[85px] w-[85px] border-2 border-gray-300 rounded-full"
                   style={{ transform: 'rotate(-96deg)' }}

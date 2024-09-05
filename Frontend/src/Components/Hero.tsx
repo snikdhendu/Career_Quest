@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography'
 // import { Link as ScrollLink } from 'react-scroll'
 // import { StyledButton } from '@/components/styled-button'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
+// import BlurIn from "@/components/magicui/blur-in";
 
 interface Exp {
   label: string

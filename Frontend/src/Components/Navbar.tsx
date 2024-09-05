@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 //import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { buttonVariants } from "./ui/button";
 import { Menu } from "lucide-react";
-import { ModeToggle } from "./mode-toggle";
+// import { ModeToggle } from "./mode-toggle";
 import { LogoIcon } from "./Icons";
 import { useUser } from '@clerk/clerk-react';
 // import { Link } from "react-router-dom";
@@ -70,7 +70,7 @@ export const Navbar = () => {
           {/* mobile */}
           <span className="flex justify-center items-center gap-4 md:hidden">
 
-            <ModeToggle />
+            {/* <ModeToggle /> */}
             {user ? (
               <AvatarCom />
             ) : (
@@ -140,16 +140,22 @@ export const Navbar = () => {
             {user ? (
               <AvatarCom />
             ) : (
+              <div className=" flex justify-center items-center gap-3">
               <Link
                 to="/sign-in"
-                className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 mt-2"
+                className="bg-teal-600 text-white font-medium py-2 px-4 rounded-lg shadow-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
               >
                 Sign in
+            
               </Link>
+              <Link to='/sign-up' className="bg-teal-600 text-white font-medium py-2 px-4 rounded-lg shadow-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                Sign up
+              </Link>
+              </div>
             )}
 
 
-            <ModeToggle />
+            {/* <ModeToggle /> */}
           </div>
         </NavigationMenuList>
       </NavigationMenu>
