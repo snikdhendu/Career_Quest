@@ -1,6 +1,7 @@
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home, Error} from './Pages';
+import Dashboard from './Pages/DashBoard/Dashboard';
 import CreateAccount from './Pages/CreateAccount';
 import "./App.css";
 import Signin from './sign-in/[[...index]]';
@@ -19,6 +20,7 @@ const App = () => {
           <Route path='/dashboard/:id/edit' element={<EditUser/>}/> */}
           <Route path="*" element={<Error />} />
           <Route path='/createAccount' element={<CreateAccount/>}/>
+          <Route path="/dashboard/*" element={<Dashboard />} />
       </Routes>
     </Router>
   );
