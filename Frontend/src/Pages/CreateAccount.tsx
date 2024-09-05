@@ -1,18 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import {
-  setAbout,
-  setLeetcodeLink,
-  setGithubLink,
-} from "../../features/userSlice";
-import { useMutation } from "@apollo/client";
-import { addUserBasicDetails } from "../graphql/mutation/userMutation";
 import { useUser } from "@clerk/clerk-react";
+import { useNavigate } from "react-router-dom";
 
 const CreateAccount: React.FC = () => {
   const { user } = useUser();
-
+  const navigate=useNavigate();
   if (!user) {
     return null;
   }
@@ -23,12 +15,11 @@ const CreateAccount: React.FC = () => {
     leetcode: "",
   });
 
-  const [addUserBasicDetailsMutation] = useMutation(addUserBasicDetails);
+ 
 
   const [formStep, setFormStep] = useState(1);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -67,13 +58,10 @@ const CreateAccount: React.FC = () => {
     e.preventDefault();
 
     if (formStep === 1 && validateStep1()) {
-      // Dispatch the about information
-      dispatch(setAbout(formData.about));
+
       setFormStep(2);
     } else if (formStep === 2 && validateStep2()) {
-      // Dispatch the GitHub and leetcode links
-      dispatch(setGithubLink(formData.gitHub));
-      dispatch(setLeetcodeLink(formData.leetcode));
+
       navigate("/");
     }
   };
@@ -91,28 +79,16 @@ const CreateAccount: React.FC = () => {
     e.preventDefault();
     if (validateStep2()) {
       // Dispatch the user properties
-      dispatch(setAbout(formData.about));
-      dispatch(setLeetcodeLink(formData.leetcode));
-      dispatch(setGithubLink(formData.gitHub));
+
       
       console.log(formData);
 
       // mutation
-      addUserBasicDetailsMutation({
-        variables: {
-          clerkUserId: user?.id,
-          about: formData.about,
-          gitHub: formData.gitHub,
-          leetcode: formData.leetcode,
-        },
-      })
-        .then((response: any) => {
-          console.log("Basic details added", response.data);
+
+
           navigate("/");
-        })
-        .catch((error: Error) => {
-          console.error("Error adding basic details of user:", error);
-        });
+
+
     }
   };
 
