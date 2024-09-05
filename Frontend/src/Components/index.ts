@@ -11,7 +11,7 @@ export {HowItWorks} from './HowItWorks'
 
 export {ScrollToTop} from './ScrollToTop'
 export {Services} from './Services'
-
+export {default as SideBox} from './SideBox'
 export {Statistics} from './Statistics'
 export {Team} from './Team'
 export {Testimonials} from './Testimonials'

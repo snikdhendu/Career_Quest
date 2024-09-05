@@ -34,10 +34,10 @@ const AvatarCom = () => {
                 </div>
                 <div>
                 <hr />
-                {/* <div className='flex  p-4 w-full gap-4 items-center'>
+                <div className='flex  p-4 w-full gap-4 items-center'>
                     <FontAwesomeIcon icon={faGraduationCap} className=' text-textmain h-6 w-6' />
-                    <Link to={`/dashboard/${user.id}`} className='font-royal4 dark:text-white text-textmain font-bold text-lg '>DashBoard</Link>      
-                </div> */}
+                    <Link to={'/dashboard'} className='font-royal4 dark:text-white text-textmain font-bold text-lg '>DashBoard</Link>      
+                </div>
                 <hr />
                 </div>
                 <div className='flex justify-evenly'> 
