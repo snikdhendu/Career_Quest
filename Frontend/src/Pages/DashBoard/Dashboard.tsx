@@ -14,7 +14,7 @@ const Dashboard = () => {
 
 
     return (
-        <>
+        <div className=' max-h-screen overflow-y-hidden'>
             <Navbar />
             <SideBox />
 
@@ -25,7 +25,7 @@ const Dashboard = () => {
                 <Route path='stats' element={<Stats />} />
             </Routes>
 
-        </>
+        </div>
     );
 }
 
