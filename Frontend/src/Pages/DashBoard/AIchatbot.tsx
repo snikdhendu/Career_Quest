@@ -6,14 +6,17 @@ type Message = {
   sender: 'user' | 'bot';
 };
 
-const socket = io(import.meta.env.BACKEND_URL);
+
+const socket = io(import.meta.env.VITE_BACKEND_URL, {
+  withCredentials: true, 
+});
 
 const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState<string>('');
+ 
 
   useEffect(() => {
-    
         // Listen for bot responses from the server
         socket.on('botResponse', (response) => {
           setMessages((prev) => [...prev, { sender: 'bot', text: response }]);
@@ -104,61 +107,3 @@ export default Chatbot;
 
 
 
-
-// import React, { useState, useEffect } from 'react';
-// import io from 'socket.io-client';
-
-// const socket = io('http://localhost:4000'); // Replace with your server URL
-
-// const Chatbot = () => {
-//   const [message, setMessage] = useState('');
-//   const [chatHistory, setChatHistory] = useState([]);
-
-//   useEffect(() => {
-//     // Listen for bot responses from the server
-//     socket.on('botResponse', (response) => {
-//       setChatHistory((prev) => [...prev, { sender: 'bot', message: response }]);
-//     });
-
-//     // Clean up when the component is unmounted
-//     return () => {
-//       socket.off('botResponse');
-//     };
-//   }, []);
-
-//   const sendMessage = () => {
-//     if (message.trim()) {
-//       // Add the user message to the chat history
-//       setChatHistory((prev) => [...prev, { sender: 'user', message }]);
-
-//       // Emit the user's message to the server
-//       socket.emit('userMessage', message);
-
-//       // Clear the input field
-//       setMessage('');
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <div className="chat-box">
-//         {chatHistory.map((chat, index) => (
-//           <div key={index} className={chat-message ${chat.sender}}>
-//             {chat.message}
-//           </div>
-//         ))}
-//       </div>
-//       <div className="chat-input">
-//         <input
-//           type="text"
-//           value={message}
-//           onChange={(e) => setMessage(e.target.value)}
-//           placeholder="Type your message..."
-//         />
-//         <button onClick={sendMessage}>Send</button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Chatbot;
