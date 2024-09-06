@@ -2,7 +2,7 @@
 
 const MainDashBoard = () => {
   return (
-    <div className=' min-h-screen bg-red-100 text-black flex justify-center items-center'>
+    <div className='  bg-red-100 text-black  justify-center items-center pt-28 min-h-screen lg:ml-64 flex flex-col gap-10 p-12'>
       <h1 className=" text-red-700 font-bold text-5xl">
         Hello
       </h1>

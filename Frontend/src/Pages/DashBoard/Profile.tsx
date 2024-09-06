@@ -160,7 +160,7 @@ const Profile = () => {
       })
     }, [profileData, touched]);
     return (
-       <div className="w-full h-screen overflow-y-auto relative text-black lg:pr-[15rem] lg:pl-[30rem] pt-8  lg:block font-royal1">
+       <div className="w-full h-screen overflow-y-auto relative text-black lg:pr-[12rem] lg:pl-[24rem] pt-8  lg:block font-royal4">
 
         {/* Trying to do resonsive */}
        {/* <div className="w-screen h-screen text-black flex justify-center pt-8 font-royal1"> */}
@@ -220,7 +220,7 @@ const Profile = () => {
           </div>
         </div>
         {formStep === 1 && (
-          <>
+          <div className="  justify-center items-center p-1 flex flex-col gap-3 w-11/12">
             <TextInput
               id="fullName"
               name="name"
@@ -307,7 +307,7 @@ const Profile = () => {
             <div className="w-full flex justify-end items-end">
               <Button onClick={handleNext} label="Next" />
             </div>
-          </>
+          </div>
         )}
         {formStep === 2 && (
           <>
