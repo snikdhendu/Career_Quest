@@ -1,26 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import io from 'socket.io-client';
 
 type Message = {
   text: string;
   sender: 'user' | 'bot';
 };
 
+const socket = io(import.meta.env.BACKEND_URL);
+
 const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState<string>('');
+
+  useEffect(() => {
+    
+        // Listen for bot responses from the server
+        socket.on('botResponse', (response) => {
+          setMessages((prev) => [...prev, { sender: 'bot', text: response }]);
+        });
+    
+        // Clean up when the component is unmounted
+        return () => {
+          socket.off('botResponse');
+        };
+      }, []);
 
   const handleSendMessage = () => {
     if (!input.trim()) return;
 
     const userMessage: Message = { text: input, sender: 'user' };
     setMessages([...messages, userMessage]);
+    socket.emit('userMessage', userMessage);
 
     // Simulate bot response (you can replace this with an API call)...add bot response here
 
-    setTimeout(() => {
-      const botMessage: Message = { text: `Bot reply to: ${input}`, sender: 'bot' };
-      setMessages((prevMessages) => [...prevMessages, botMessage]);
-    }, 1000);
+    // setTimeout(() => {
+    //   const botMessage: Message = { text: `Bot reply to: ${input}`, sender: 'bot' };
+    //   setMessages((prevMessages) => [...prevMessages, botMessage]);
+    // }, 1000);
 
     setInput('');
   };
@@ -84,3 +101,64 @@ const Chatbot: React.FC = () => {
 };
 
 export default Chatbot;
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import io from 'socket.io-client';
+
+// const socket = io('http://localhost:4000'); // Replace with your server URL
+
+// const Chatbot = () => {
+//   const [message, setMessage] = useState('');
+//   const [chatHistory, setChatHistory] = useState([]);
+
+//   useEffect(() => {
+//     // Listen for bot responses from the server
+//     socket.on('botResponse', (response) => {
+//       setChatHistory((prev) => [...prev, { sender: 'bot', message: response }]);
+//     });
+
+//     // Clean up when the component is unmounted
+//     return () => {
+//       socket.off('botResponse');
+//     };
+//   }, []);
+
+//   const sendMessage = () => {
+//     if (message.trim()) {
+//       // Add the user message to the chat history
+//       setChatHistory((prev) => [...prev, { sender: 'user', message }]);
+
+//       // Emit the user's message to the server
+//       socket.emit('userMessage', message);
+
+//       // Clear the input field
+//       setMessage('');
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <div className="chat-box">
+//         {chatHistory.map((chat, index) => (
+//           <div key={index} className={chat-message ${chat.sender}}>
+//             {chat.message}
+//           </div>
+//         ))}
+//       </div>
+//       <div className="chat-input">
+//         <input
+//           type="text"
+//           value={message}
+//           onChange={(e) => setMessage(e.target.value)}
+//           placeholder="Type your message..."
+//         />
+//         <button onClick={sendMessage}>Send</button>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Chatbot;
