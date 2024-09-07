@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import  { FC } from 'react'
 import { Box } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
@@ -6,30 +6,30 @@ import Typography from '@mui/material/Typography'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 
 
-interface Exp {
-  label: string
-  value: string
-}
-interface ExpItemProps {
-  item: Exp
-}
+// interface Exp {
+//   label: string
+//   value: string
+// }
+// interface ExpItemProps {
+//   item: Exp
+// }
 
 
-const ExpItem: FC<ExpItemProps> = ({ item }) => {
-  const { value, label } = item
-  return (
-    <Box sx={{ textAlign: 'center', mb: { xs: 1, md: 0 } }}>
-      <Typography
-        sx={{ color: 'secondary.main', mb: { xs: 1, md: 2 }, fontSize: { xs: 34, md: 44 }, fontWeight: 'bold' }}
-      >
-        {value}
-      </Typography>
-      <Typography color="text.secondary" variant="h5">
-        {label}
-      </Typography>
-    </Box>
-  )
-}
+// const ExpItem: FC<ExpItemProps> = ({ item }) => {
+//   const { value, label } = item
+//   return (
+//     <Box sx={{ textAlign: 'center', mb: { xs: 1, md: 0 } }}>
+//       <Typography
+//         sx={{ color: 'secondary.main', mb: { xs: 1, md: 2 }, fontSize: { xs: 34, md: 44 }, fontWeight: 'bold' }}
+//       >
+//         {value}
+//       </Typography>
+//       <Typography color="text.secondary" variant="h5">
+//         {label}
+//       </Typography>
+//     </Box>
+//   )
+// }
 
 const Hero: FC = () => {
   return (
@@ -125,7 +125,7 @@ const Hero: FC = () => {
               <Box sx={{ mb: 4, width: { xs: '100%', md: '70%' } }}>
                 <Typography sx={{ color: 'text.secondary', lineHeight: 1.6 }} >
                   {
-                    "Let's take an online course to improve your skills in a different way, you can set your own study time according to your learning speed. So you san study comfortable and absorb tge material easily."
+                    "Discover personalized career paths, skill recommendations, and tailored learning experiences. Our AI-driven platform  is here to help you make confident career decisions, learn at your own pace, and thrive in your chosen field. Let’s shape your future together!"
                   }
                 </Typography>
               </Box>
@@ -216,14 +216,14 @@ const Hero: FC = () => {
             <div className="w-full md:w-1/3">
               <div className="bg-white p-4 rounded-lg flex justify-center items-center flex-col gap-2">
                 
-                <p className="text-textsecond text-4xl font-bold">20+</p>
-                <h3 className="text-2xl font-bold mb-4">Quality Course</h3>
+                <p className="text-textsecond text-4xl font-bold">50+</p>
+                <h3 className="text-2xl font-bold mb-4">Quality Careers</h3>
               </div>
             </div>
             <div className="w-full md:w-1/3">
               <div className="bg-white p-4 rounded-lg flex justify-center items-center flex-col gap-2">
                
-                <p className="text-textsecond text-4xl font-bold">10+</p>
+                <p className="text-textsecond text-4xl font-bold">30+</p>
                 <h3 className="text-2xl font-bold mb-4">Experience Mentors</h3>
               </div>
             </div>

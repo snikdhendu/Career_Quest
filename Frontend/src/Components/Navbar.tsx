@@ -9,7 +9,7 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
-  SheetTitle,
+  // SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
 import { Link } from "react-router-dom";
@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import { buttonVariants } from "./ui/button";
 import { Menu } from "lucide-react";
 // import { ModeToggle } from "./mode-toggle";
-import { LogoIcon } from "./Icons";
+// import { LogoIcon } from "./Icons";
 import { useUser } from '@clerk/clerk-react';
 // import { Link } from "react-router-dom";
 
@@ -34,16 +34,16 @@ const routeList: RouteProps[] = [
     label: "Home",
   },
   {
-    href: "/projects",
-    label: "Project",
+    href: "/community",
+    label: "Community",
   },
   {
-    href: "/roadmaps",
-    label: "Roadmap",
+    href: "/mentors",
+    label: "Mentors",
   },
   {
-    href:"/profiles",
-    label:"Profile"
+    href: "/sessions",
+    label: "Session"
   }
 ];
 
@@ -60,10 +60,10 @@ export const Navbar = () => {
             <Link
               rel="noreferrer noopener"
               to="/"
-              className="ml-2 font-bold text-xl flex"
+              className="ml-2 font-bold text-xl flex gap-2 justify-center items-center"
             >
-              <LogoIcon />
-              Logo
+              <img src="/logo.svg" alt="" className="h-12 w-12" />
+              <h1 className="text-textsecond font-extrabold text-xl">CareerQuest</h1>
             </Link>
           </NavigationMenuItem>
 
@@ -97,9 +97,14 @@ export const Navbar = () => {
 
               <SheetContent side={"left"}>
                 <SheetHeader>
-                  <SheetTitle className="font-bold text-xl">
-                    Shadcn/React
-                  </SheetTitle>
+                  <Link
+                    rel="noreferrer noopener"
+                    to="/"
+                    className="ml-2 font-bold text-xl flex gap-2 justify-center items-center"
+                  >
+                    <img src="/logo.svg" alt="" className="h-12 w-12" />
+                    <h1 className="text-textsecond font-extrabold text-xl">CareerQuest</h1>
+                  </Link>
                 </SheetHeader>
                 <nav className="flex flex-col justify-center items-center gap-2 mt-4">
                   {routeList.map(({ href, label }: RouteProps) => (
@@ -141,16 +146,16 @@ export const Navbar = () => {
               <AvatarCom />
             ) : (
               <div className=" flex justify-center items-center gap-3">
-              <Link
-                to="/sign-in"
-                className="bg-teal-600 text-white font-medium py-2 px-4 rounded-lg shadow-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
-              >
-                Sign in
-            
-              </Link>
-              <Link to='/sign-up' className="border-2 border-teal-600 text-teal-600 font-medium py-2 px-4 rounded-lg shadow-md hover:bg-teal-50 focus:outline-none focus:ring-2 focus:ring-teal-500">
-                Sign up
-              </Link>
+                <Link
+                  to="/sign-in"
+                  className="bg-teal-600 text-white font-medium py-2 px-4 rounded-lg shadow-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                >
+                  Sign in
+
+                </Link>
+                <Link to='/sign-up' className="border-2 border-teal-600 text-teal-600 font-medium py-2 px-4 rounded-lg shadow-md hover:bg-teal-50 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                  Sign up
+                </Link>
               </div>
             )}
 

@@ -1,5 +1,5 @@
 import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { MagnifierIcon,WalletIcon,ChartIcon } from "./Icons";
+import { MagnifierIcon, WalletIcon, ChartIcon } from "./Icons";
 import cubeLeg from "/cube-leg.png";
 
 interface ServiceProps {
@@ -10,24 +10,25 @@ interface ServiceProps {
 
 const serviceList: ServiceProps[] = [
   {
-    title: "Code Collaboration",
+    title: "AI-Powered Career Guidance",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+      "Receive personalized career recommendations and insights tailored to your skills and interests, powered by advanced AI algorithms.",
     icon: <ChartIcon />,
   },
   {
-    title: "Project Management",
+    title: "Mentor Support",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+      "Connect with experienced mentors to get one-on-one advice and guidance, helping you navigate your career path effectively.",
     icon: <WalletIcon />,
   },
   {
-    title: "Task Automation",
+    title: "Skill Development Tracking",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+      "Track your learning progress and get tailored resources to build and refine the skills that will elevate your career.",
     icon: <MagnifierIcon />,
   },
 ];
+
 
 export const Services = () => {
   return (
@@ -36,14 +37,13 @@ export const Services = () => {
         <div>
           <h2 className="text-3xl md:text-4xl font-bold">
             <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-              Client-Centric{" "}
+              Personalized{" "}
             </span>
-            Services
+            Career Services
           </h2>
 
-          <p className="text-muted-foreground text-xl mt-4 mb-8 ">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis
-            dolor.
+          <p className="text-muted-foreground text-xl mt-4 mb-8">
+            Tailored solutions designed to empower your career journey, providing you with the right guidance and learning resources.
           </p>
 
           <div className="flex flex-col gap-8">
@@ -68,9 +68,10 @@ export const Services = () => {
         <img
           src={cubeLeg}
           className="w-[300px] md:w-[500px] lg:w-[600px] object-contain"
-          alt="About services"
+          alt="Career services illustration"
         />
       </div>
+
     </section>
   );
 };

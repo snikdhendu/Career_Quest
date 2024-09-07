@@ -13,36 +13,35 @@ interface FAQProps {
 
 const FAQList: FAQProps[] = [
   {
-    question: "Is this template free?",
-    answer: "Yes. It is a free ChadcnUI template.",
+    question: "How does the AI-powered career counseling work?",
+    answer: "Our AI analyzes your skills, interests, and goals to provide personalized career guidance and recommendations.",
     value: "item-1",
   },
   {
-    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
+    question: "Can I connect with mentors through the platform?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod.",
+      "Yes, you can connect with experienced mentors who will offer one-on-one guidance to help you navigate your career path.",
     value: "item-2",
   },
   {
-    question:
-      "Lorem ipsum dolor sit amet  Consectetur natus dolores minus quibusdam?",
+    question: "Is the career counseling service free?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore qui nostrum reiciendis veritatis necessitatibus maxime quis ipsa vitae cumque quo?",
+      "We offer both free and premium plans, allowing you to choose the best option that suits your needs and goals.",
     value: "item-3",
   },
   {
-    question: "Lorem ipsum dolor sit amet, consectetur adipisicing elit?",
-    answer: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+    question: "How do I track my skill development progress?",
+    answer: "Our platform provides detailed tracking of your learning progress and offers resources to improve your skills.",
     value: "item-4",
   },
   {
-    question:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur natus?",
+    question: "Can I get recommendations for courses and certifications?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod.",
+      "Yes, based on your profile, our AI suggests the most relevant courses and certifications to boost your career.",
     value: "item-5",
   },
 ];
+
 
 export const FAQ = () => {
   return (

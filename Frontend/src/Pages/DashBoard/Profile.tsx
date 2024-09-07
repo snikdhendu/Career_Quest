@@ -207,7 +207,7 @@ const Profile = () => {
           </div>
         </div>
         {formStep === 1 && (
-          <div className="  justify-center items-center p-1 flex flex-col gap-3 w-11/12">
+          <div className="  justify-center items-center p-3 flex flex-col gap-3 w-11/12">
             <TextInput
               id="fullName"
               name="name"
@@ -217,7 +217,7 @@ const Profile = () => {
               onChange={handleProfileChange}
               error={errors.name}
               />
-            <div className="w-full flex gap-4">
+            <div className="w-full flex gap-5 my-4">
               <div className="w-1/2">
                 <TextInput
                   id="dob"
@@ -265,7 +265,7 @@ const Profile = () => {
               placeholder="Mother's name"
               onChange={handleProfileChange}
               /> */}
-            <div className="w-full flex gap-4">
+            <div className="w-full flex gap-5 mb-5">
               <div className="w-1/2">
                 <TextInput
                   id="location"
@@ -309,7 +309,7 @@ const Profile = () => {
               error={errors.school}
             />
 
-            <div className="w-full flex gap-4">
+            <div className="w-full flex gap-4 my-3">
               <SelectInput
                 id="currentStudy"
                 name="study"
@@ -341,7 +341,7 @@ const Profile = () => {
               />
             </div>
 
-            <div className="w-full flex gap-4">
+            <div className="w-full flex gap-4 mb-3">
               <TextInput
                 id="favouriteSubject"
                 name="favouriteSubject"
@@ -364,7 +364,7 @@ const Profile = () => {
                 error={errors.nonFavouriteSubject}
                 />
             </div>
-
+            <div className="w-full mb-3">
             <TextInput
               id="achievements"
               name="achievements"
@@ -375,7 +375,8 @@ const Profile = () => {
               type="text"
               error={errors.achievements}
               />
-
+            </div>
+            <div className="w-full mb-2">
             <TextInput
               id="aspiration"
               name="aspiration"
@@ -386,6 +387,7 @@ const Profile = () => {
               type="text"
               error={errors.aspiration}
             />
+            </div>
             
             <div className="w-full flex flex-row justify-between items-end">
               <Button onClick={handlePrev} label="Previous" />
@@ -414,7 +416,7 @@ const Profile = () => {
       error={errors.hobbies}
     />
 
-    <div className="w-full flex gap-4">
+    <div className="w-full flex gap-4 my-3">
     <TextInput
       id="strength"
       name="strength"
@@ -451,7 +453,7 @@ const Profile = () => {
         { value: ">8", label: "More than 8 Hrs" },
       ]}
     />
-
+  <div className="w-full flex gap-4 my-3">
     <SelectInput
       id="movie"
       name="movie"
@@ -493,7 +495,8 @@ const Profile = () => {
         { value: "others", label: "Others" },
       ]}
     />
-
+    </div>
+    <div className="w-full mb-3">
     <SelectInput
       id="higherEducation"
       name="higherEducation"
@@ -508,6 +511,7 @@ const Profile = () => {
         { value: "others", label: "Others" },
       ]}
     />
+    </div>
 
     {/* <TextInput
       id="others"
@@ -517,7 +521,7 @@ const Profile = () => {
       value={profileData.others}
       onChange={handleProfileChange}
     /> */}
-
+  <div className="w-full mb-2">
     <TextInput
       id="referrenceCounsellor"
       name="referrenceCounsellor"
@@ -526,7 +530,7 @@ const Profile = () => {
       value={profileData.referrenceCounsellor}
       onChange={handleProfileChange}
     />
-
+  </div>
     <div className="w-full flex flex-row justify-between items-end">
       <Button onClick={handlePrev} label="Previous" />
       <Button onClick={handleSubmit} label="Submit" />
