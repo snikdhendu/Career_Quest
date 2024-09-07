@@ -24,7 +24,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     credentials: true,
-    origin: "https://career-quest-nu.vercel.app/",  // Adjust according to your frontend URL
+    origin: "https://career-quest-nu.vercel.app",  // Adjust according to your frontend URL
     methods: ["GET", "POST"]
   }
 });
@@ -32,10 +32,12 @@ const io = new Server(server, {
 // Middleware setup
 // app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(cors({
-  origin: true, // Adjust to your frontend URL
+  origin: "https://career-quest-nu.vercel.app", // Replace with your frontend URL
   credentials: true
 }));
+
 app.use(morgan("dev")); // Uncomment if you want logging
 
 app.post(
@@ -72,7 +74,6 @@ io.on('connection', (socket) => {
       console.error('Error handling user message:', error);
     }
   });
-  
   socket.on('disconnect', () => {
     console.log('User disconnected');
   });
