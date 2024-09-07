@@ -9,6 +9,8 @@ import { Server } from "socket.io";
 import { errorMiddleware } from "./middlewares/error.js";
 import { handleChat, createNewSession } from "./chatbot/chatbot.js";
 import { connectDB } from "./db/connectDb.js";
+import bodyParser from 'body-parser';
+import { handleWebhook } from "./controllers/webhook.js";
 
 // Configuration
 export const envMode = process.env.NODE_ENV?.trim() || "DEVELOPMENT";
@@ -28,13 +30,16 @@ const io = new Server(server, {
 });
 
 // Middleware setup
-app.use(express.json());
+// app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin: '*', // Adjust to your frontend URL
+  origin: true, // Adjust to your frontend URL
   credentials: true
 }));
 app.use(morgan("dev")); // Uncomment if you want logging
+
+app.post(
+  '/api/webhook',bodyParser.raw({ type: 'application/json' }),handleWebhook);
 
 // Define routes
 app.get("/", (req, res) => {
