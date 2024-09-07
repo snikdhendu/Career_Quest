@@ -12,7 +12,7 @@ interface IUser extends Document {
     year?: string;
     profileUrl?: string;
     email: string;
-    collegeName?: string;
+    schoolName?: string;
 
      
   }
@@ -27,7 +27,7 @@ const UserSchema=new Schema<IUser>({
     mobileNumber:{type:String, default:''},
     year:{type:String, default:''},
     email: { type: String, required: true, unique: true, match: /.+\@.+\..+/ },
-    collegeName: { type: String, default: '' },
+    schoolName: { type: String, default: '' },
 
 },{
     timestamps: true,

@@ -23,7 +23,7 @@ export const handleWebhook = async (req: Request, res: Response) => {
     if (eventType === "user.created") {
       console.log(`User ${id} was ${eventType}`);
 
-      console.log(attributes);
+    //   console.log(attributes);
 
       const firstName = attributes.first_name;
       const lastName = attributes.last_name;
