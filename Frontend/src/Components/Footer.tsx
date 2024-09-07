@@ -1,4 +1,4 @@
-import { LogoIcon } from "./Icons";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -7,14 +7,14 @@ export const Footer = () => {
 
       <section className="container py-20 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8">
         <div className="col-span-full xl:col-span-2">
-          <a
+          <Link
             rel="noreferrer noopener"
-            href="/"
-            className="font-bold text-xl flex"
+            to="/"
+            className="ml-2 font-bold text-xl flex gap-2 justify-center items-center"
           >
-            <LogoIcon />
-            ShadcnUI/React
-          </a>
+            <img src="/logo.svg" alt="" className="h-12 w-12" />
+            <h1 className="text-textsecond font-extrabold text-xl">CareerQuest</h1>
+          </Link>
         </div>
 
         <div className="flex flex-col gap-2">

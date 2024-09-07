@@ -1,5 +1,5 @@
 import { Navbar  } from "../Components/Navbar";
-import { Hero ,HeroCards, HowItWorks,Services,Testimonials,Team,Footer,ScrollToTop } from "../Components";
+import { Hero ,HeroCards, HowItWorks,Services,Footer,ScrollToTop,FAQ } from "../Components";
 
 
 const Home = () => {
@@ -13,9 +13,9 @@ const Home = () => {
       <HowItWorks />
       <HeroCards />
       <Services />
-      <Testimonials />
-      <Team />
-      {/* <FAQ /> */}
+      {/* <Testimonials /> */}
+      {/* <Team /> */}
+      <FAQ />
       <Footer />
       <ScrollToTop />
 

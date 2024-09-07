@@ -5,8 +5,10 @@ import { Route, Routes } from "react-router-dom";
 import MainDashBoard from './MainDashBoard'
 import Profile from './Profile'
 import AIchatbot from './AIchatbot'
-import Stats from './AIchatbot'
 import { SideBox } from '../../Components';
+import Carrerlibrary from './Carrerlibrary'
+import Helpsupport from './Helpsupport';
+import Mentors from './Mentors';
 // import { useFirebase } from '../../Context/FirebaseContext';
 
 const Dashboard = () => {
@@ -14,7 +16,7 @@ const Dashboard = () => {
 
 
     return (
-        <div className=' max-h-screen overflow-y-hidden'>
+        <div className=' max-h-screen overflow-hidden'>
             <Navbar />
             <SideBox />
 
@@ -22,7 +24,9 @@ const Dashboard = () => {
                 <Route path='/' element={<MainDashBoard />} />
                 <Route path='profile' element={<Profile />} />
                 <Route path='aichatbot' element={<AIchatbot />} />
-                <Route path='stats' element={<Stats />} />
+                <Route path='library' element={<Carrerlibrary />} />
+                <Route path='mentors' element={<Mentors />} />
+                <Route path='help' element={<Helpsupport />} />
             </Routes>
 
         </div>
