@@ -24,7 +24,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     credentials: true,
-    origin: "http://localhost:5173",  // Adjust according to your frontend URL
+    origin: "https://career-quest-nu.vercel.app/",  // Adjust according to your frontend URL
     methods: ["GET", "POST"]
   }
 });
@@ -72,21 +72,7 @@ io.on('connection', (socket) => {
       console.error('Error handling user message:', error);
     }
   });
-
-  // socket.on('userMessage', async (userInput) => {
-  //   try {
-  //     // Ensure userInput is a string or BaseMessage
-  //     const formattedInput = typeof userInput === 'string'
-  //       ? userInput
-  //       : new BaseMessage({ text: userInput.text, sender: userInput.sender });
-
-  //     const response = await handleChat(formattedInput, sessionId);
-  //     socket.emit('botResponse', response);
-  //   } catch (error) {
-  //     console.error('Error handling user message:', error);
-  //   }
-  // });
-
+  
   socket.on('disconnect', () => {
     console.log('User disconnected');
   });
