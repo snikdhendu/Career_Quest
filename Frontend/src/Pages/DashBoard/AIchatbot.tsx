@@ -76,8 +76,7 @@ const Chatbot: React.FC = () => {
         {
           message.sender === 'user' ? (
             <>
-
-              <div className="chat chat-end  w-full">
+              <div className="chat chat-end m-5 w-full">
                 <div className="chat-bubble chat-bubble-success"> {message.text}</div>
               </div>
               <img
@@ -98,10 +97,7 @@ const Chatbot: React.FC = () => {
                 
               </div>
 
-
-
             </>
-
           )
         }
         {/* <div
@@ -116,7 +112,7 @@ const Chatbot: React.FC = () => {
   };
 
   return (
-    <div className="h-screen   ml-64 flex flex-col items-center justify-center bg-gray-100">
+    <div className="h-screen ml-64 flex flex-col items-center justify-center bg-gray-100">
       <div className="w-full max-w-4xl border border-gray-300 rounded-lg shadow-lg bg-white mb-12 " style={{ height: '650px' }}>
         <div className="p-4 overflow-y-auto" style={{ height: '570px' }}>
           {renderMessages()}
