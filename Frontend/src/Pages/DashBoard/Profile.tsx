@@ -7,8 +7,6 @@ interface ProfileData {
   name: string;
   dob: string;
   gender: string;
-  fatherName: string;
-  motherName: string;
   location: string;
   mobileNumber: string;
   school: string;
@@ -18,17 +16,13 @@ interface ProfileData {
   nonFavouriteSubject: string;
   achievements: string;
   aspiration: string;
-  seeYourself: string;
   hobbies: string;
-  favouriteColor: string;
-  favouriteFood: string;
   strength: string;
   weekness: string;
   socialMedia: string;
   movie: string;
   book: string;
   higherEducation: string;
-  others: string;
   referrenceCounsellor: string;
 }
 
@@ -39,8 +33,6 @@ const Profile = () => {
     name: "",
     dob: "",
     gender: "",
-    fatherName: "",
-    motherName: "",
     location: "",
     mobileNumber: "",
     school: "",
@@ -50,17 +42,13 @@ const Profile = () => {
     nonFavouriteSubject: "",
     achievements: "",
     aspiration: "",
-    seeYourself: "",
     hobbies: "",
-    favouriteColor: "",
-    favouriteFood: "",
     strength: "",
     weekness: "",
     socialMedia: "",
     movie: "",
     book: "",
     higherEducation: "",
-    others: "",
     referrenceCounsellor: "",
   });
   const [touched, setTouched] = useState<Partial<Record<keyof ProfileData, boolean>>>({});
@@ -91,7 +79,7 @@ const Profile = () => {
       if (!profileData.name) newErrors.name = 'Full name is required';
       if (!profileData.dob) newErrors.dob = 'Date of birth is required';
       if (!profileData.gender) newErrors.gender = 'Gender is required';
-      if (!profileData.fatherName) newErrors.fatherName = 'FatherName is requirezd';
+      // if (!profileData.fatherName) newErrors.fatherName = 'FatherName is requirezd';
       if (!profileData.location) newErrors.location = 'Location is required';
       if (!profileData.mobileNumber) newErrors.mobileNumber = 'Mobile Number is required';
     }else if(formStep === 2){
@@ -99,13 +87,13 @@ const Profile = () => {
       if (!profileData.study) newErrors.study = 'Study Details is required';
       if (!profileData.previousClassPercentage) newErrors.previousClassPercentage = 'Percentage is required';
       if (!profileData.favouriteSubject) newErrors.favouriteSubject = 'Favouritte Subject Name is required';
-      if (!profileData.nonFavouriteSubject) newErrors.nonFavouriteSubject = 'Non Favourite Subject Name is required';
-      if (!profileData.achievements) newErrors.achievements = 'Achievements is required';
-      if (!profileData.aspiration) newErrors.aspiration = 'Aspiration is required';
+      // if (!profileData.nonFavouriteSubject) newErrors.nonFavouriteSubject = 'Non Favourite Subject Name is required';
+      // if (!profileData.achievements) newErrors.achievements = 'Achievements is required';
+       if (!profileData.aspiration) newErrors.aspiration = 'Aspiration is required';
     }else if(formStep === 3){
       if (!profileData.hobbies) newErrors.hobbies = 'Hobbies/Interest name is required';
-      if (!profileData.strength) newErrors.strength = 'Strengths are required';
-      if (!profileData.weekness) newErrors.weekness = 'Weekness is required';
+      // if (!profileData.strength) newErrors.strength = 'Strengths are required';
+      // if (!profileData.weekness) newErrors.weekness = 'Weekness is required';
     }else if(formStep === 4){
       if(!profileData.higherEducation) newErrors.higherEducation = 'Higher Education Data is Required';
     }
@@ -135,7 +123,6 @@ const Profile = () => {
         if (touched.name && !profileData.name.trim()) newErrors.name = 'Full name is required';
         if (touched.dob && !profileData.dob.trim()) newErrors.dob = 'Date of birth is required';
         if (touched.gender && !profileData.gender.trim()) newErrors.gender = 'Gender is required';
-        if (touched.fatherName && !profileData.fatherName.trim()) newErrors.fatherName = 'Father\'s Name is required';
         if (touched.location && !profileData.location) newErrors.location = 'Location is required';
         if (touched.mobileNumber && !profileData.mobileNumber) newErrors.mobileNumber = 'Mobile Number is required';
       }else if(formStep===2){
@@ -143,13 +130,13 @@ const Profile = () => {
         if (touched.study && !profileData.study) newErrors.study = 'Study Details is required';
         if (touched.previousClassPercentage && !profileData.previousClassPercentage) newErrors.previousClassPercentage = 'Percentage is required';
         if (touched.favouriteSubject &&  !profileData.favouriteSubject) newErrors.favouriteSubject = 'Favouritte Subject Name is required';
-        if (touched.nonFavouriteSubject && !profileData.nonFavouriteSubject) newErrors.nonFavouriteSubject = 'Non Favourite Subject Name is required';
-        if (touched.achievements && !profileData.achievements) newErrors.achievements = 'Achievements is required';
+        // if (touched.nonFavouriteSubject && !profileData.nonFavouriteSubject) newErrors.nonFavouriteSubject = 'Non Favourite Subject Name is required';
+        // if (touched.achievements && !profileData.achievements) newErrors.achievements = 'Achievements is required';
         if (touched.aspiration && !profileData.aspiration) newErrors.aspiration = 'Aspiration is required';
       }else if(formStep ===3){
         if (touched.hobbies && !profileData.hobbies) newErrors.hobbies = 'Hobbies/Interest name is required';
-        if (touched.strength  && !profileData.strength) newErrors.strength = 'Strengths are required';
-        if (touched.weekness && !profileData.weekness) newErrors.weekness = 'Weekness is required';
+        // if (touched.strength  && !profileData.strength) newErrors.strength = 'Strengths are required';
+        // if (touched.weekness && !profileData.weekness) newErrors.weekness = 'Weekness is required';
       }else if(formStep===4){
         if(touched.higherEducation && !profileData.higherEducation) newErrors.higherEducation = 'Higher Education Data is Required';
       }
@@ -173,7 +160,7 @@ const Profile = () => {
             <div className="w-full rounded-full bg-SmallHeading h-1 bg-gray-400 "></div>
             <div
               className={`absolute rounded-full bg-BluePrimary h-1 top-0 transition-all bg-blue-600`}
-              style={{ width: `${(formStep - 1) * 33 + 1}%` }}
+              style={{ width: `${(formStep - 1) * 50 + 1}%` }}
             ></div>
             <div
               className={`rounded-full absolute h-8 w-8 -top-2.5 left-[-1%] flex justify-center items-center font-semibold transition-all bg-SmallHeading  ${
@@ -185,7 +172,7 @@ const Profile = () => {
               1
             </div>
             <div
-              className={`rounded-full absolute h-8 w-8 b -top-2.5 left-[33%] flex justify-center items-center font-semibold transition-all bg-SmallHeading ${
+              className={`rounded-full absolute h-8 w-8 b -top-2.5 left-[50%] flex justify-center items-center font-semibold transition-all bg-SmallHeading ${
                 formStep >= 2
                   ? "bg-blue-600 text-white"
                   : "bg-gray-400 text-[#636363]"
@@ -194,7 +181,7 @@ const Profile = () => {
               2
             </div>
             <div
-              className={`rounded-full absolute h-8 w-8   -top-2.5 left-[66%] flex justify-center items-center font-semibold transition-all bg-SmallHeading ${
+              className={`rounded-full absolute h-8 w-8   -top-2.5 left-[100%] flex justify-center items-center font-semibold transition-all bg-SmallHeading ${
                 formStep >= 3
                   ? "bg-blue-600 text-white"
                   : "bg-gray-400 text-[#636363]"
@@ -202,7 +189,7 @@ const Profile = () => {
             >
               3
             </div>
-            <div
+            {/* <div
               className={`rounded-full absolute h-8 w-8  -top-2.5 left-[99%] flex justify-center items-center font-semibold transition-all bg-SmallHeading ${
                 formStep === 4
                   ? "bg-blue-600 text-white"
@@ -210,13 +197,13 @@ const Profile = () => {
               }`}
             >
               4
-            </div>
+            </div> */}
           </div>
           <div className="w-full flex flex-row items-center justify-between pl-4 pr-4">
               <h1>Personal Details</h1>
               <h1>Academic Details</h1>
-              <h1>Case History I</h1>
-              <h1>Case History II</h1>
+              <h1>Other Details</h1>
+              {/* <h1>Case History II</h1> */}
           </div>
         </div>
         {formStep === 1 && (
@@ -260,7 +247,7 @@ const Profile = () => {
                 />
               </div>
             </div>
-            <TextInput
+            {/* <TextInput
               id="fatherName"
               name="fatherName"
               label="Father's name*"
@@ -268,8 +255,8 @@ const Profile = () => {
               placeholder="Father's name"
               error={errors.fatherName}
               onChange={handleProfileChange}
-              />
-            <TextInput
+              /> */}
+            {/* <TextInput
               id="motherName"
               name="motherName"
               label="Mother's name"
@@ -277,7 +264,7 @@ const Profile = () => {
               error={errors.motherName}
               placeholder="Mother's name"
               onChange={handleProfileChange}
-              />
+              /> */}
             <div className="w-full flex gap-4">
               <div className="w-1/2">
                 <TextInput
@@ -294,10 +281,10 @@ const Profile = () => {
                 <TextInput
                   id="mobileNumber"
                   name="mobileNumber"
-                  label="Enter 10-digit mobile number*"
+                  label="Enter your mobile number*"
                   value={profileData.mobileNumber}
                   error={errors.mobileNumber}
-                  placeholder="Enter 10-digit mobile number"
+                  placeholder="Enter your mobile number"
                   onChange={handleProfileChange}
                   type="tel"
                 />
@@ -369,8 +356,8 @@ const Profile = () => {
               <TextInput
                 id="nonFavouriteSubject"
                 name="nonFavouriteSubject"
-                label="Non-Favourite Subject*"
-                placeholder="Non-Favourite Subject"
+                label="Least-Favourite Subject"
+                placeholder="Least-Favourite Subject"
                 value={profileData.nonFavouriteSubject}
                 onChange={handleProfileChange}
                 type="text"
@@ -381,7 +368,7 @@ const Profile = () => {
             <TextInput
               id="achievements"
               name="achievements"
-              label="Academic and Non-Academic Achievements*"
+              label="Academic and Non-Academic Achievements"
               placeholder="Academic and Non-Academic Achievements"
               value={profileData.achievements}
               onChange={handleProfileChange}
@@ -407,169 +394,145 @@ const Profile = () => {
           </>
         )}
         {formStep === 3 && (
-          <>
-            <TextInput
-              id="seeYourself"
-              name="seeYourself"
-              label="Where do you want to see yourself in next 5-10 years?"
-              value={profileData.seeYourself}
-              placeholder="Where do you want to see yourself in next 5-10 years?"
-              onChange={handleProfileChange}
-            />
+  <>
+    {/* <TextInput
+      id="seeYourself"
+      name="seeYourself"
+      label="Where do you want to see yourself in next 5-10 years?"
+      value={profileData.seeYourself}
+      placeholder="Where do you want to see yourself in next 5-10 years?"
+      onChange={handleProfileChange}
+    /> */}
 
-            <TextInput
-              id="hobbies"
-              name="hobbies"
-              label="Hobbies and Interest*"
-              placeholder="Write your Hobbies and Interest"
-              value={profileData.hobbies}
-              onChange={handleProfileChange}
-              error={errors.hobbies}
-            />
+    <TextInput
+      id="hobbies"
+      name="hobbies"
+      label="Hobbies and Interest*"
+      placeholder="Write your Hobbies and Interest"
+      value={profileData.hobbies}
+      onChange={handleProfileChange}
+      error={errors.hobbies}
+    />
 
-            <div className="w-full flex gap-4">
-              <TextInput
-                id="favouriteColor"
-                name="favouriteColor"
-                label="Favourite Color"
-                placeholder="Favourite Color"
-                value={profileData.favouriteColor}
-                onChange={handleProfileChange}
-              />
+    <div className="w-full flex gap-4">
+    <TextInput
+      id="strength"
+      name="strength"
+      label="Strengths"
+      placeholder="Strengths"
+      value={profileData.strength}
+      onChange={handleProfileChange}
+      error={errors.strength}
+    />
 
-              <TextInput
-                id="favouriteFood"
-                name="favouriteFood"
-                label="Favourite Food"
-                placeholder="Favourite Food"
-                value={profileData.favouriteFood}
-                onChange={handleProfileChange}
-              />
-            </div>
+    <TextInput
+          id="weekness"
+          name="weekness"
+          value={profileData.weekness}
+          label="Weaknesses"
+          placeholder="Weaknesses"
+          onChange={handleProfileChange}
+          error={errors.weekness}
+        />
+    </div>
 
-            <TextInput
-              id="strength"
-              name="strength"
-              label="Strengths*"
-              placeholder="Strengths"
-              value={profileData.strength}
-              onChange={handleProfileChange}
-              error={errors.strength}
-              />
 
-            <TextInput
-              id="weekness"
-              name="weekness"
-              value={profileData.weekness}
-              label="Weaknesses*"
-              placeholder="Weaknesses"
-              onChange={handleProfileChange}
-              error={errors.weekness}
-            />
+    <SelectInput
+      id="socialMedia"
+      name="socialMedia"
+      label="How much time you devote to social media/mobile phone?"
+      value={profileData.socialMedia}
+      onChange={handleProfileChange}
+      options={[
+        { value: "", label: "Select" },
+        { value: "1-3", label: "1 to 3 Hrs" },
+        { value: "3-5", label: "3 to 5 Hrs" },
+        { value: "5-8", label: "5 to 8 Hrs" },
+        { value: ">8", label: "More than 8 Hrs" },
+      ]}
+    />
 
-            <SelectInput
-              id="socialMedia"
-              name="socialMedia"
-              label="How much time you devotes to social media/mobile phone?"
-              value={profileData.socialMedia}
-              onChange={handleProfileChange}
-              options={[
-                { value: "", label: "Select" },
-                { value: "1-3", label: "1 to 3 Hrs" },
-                { value: "3-5", label: "3 to 5 Hrs" },
-                { value: "5-8", label: "5 to 8 Hrs" },
-                { value: ">8", label: "More than 8 Hrs" },
-              ]}
-            />
-            
-            <div className="w-full flex flex-row justify-between items-end">
-              <Button onClick={handlePrev} label="Previous" />
-              <Button onClick={handleNext} label="Next" />
-            </div>
-          </>
-        )}
-        {formStep === 4 && (
-          <>
-            <SelectInput
-              id="movie"
-              name="movie"
-              label="What kind of movies & videos do you prefer to watch?"
-              value={profileData.movie}
-              onChange={handleProfileChange}
-              options={[
-                { value: "", label: "Select" },
-                { value: "action", label: "Action" },
-                { value: "comedy", label: "Comedy" },
-                { value: "horror", label: "Horror" },
-                { value: "mystry", label: "Mystery" },
-                { value: "thriller", label: "Thriller" },
-                { value: "romance", label: "Romance" },
-                { value: "realStoryBased", label: "Real Story Based" },
-                { value: "cooking", label: "Cooking" },
-                { value: "familyOriented", label: "Family oriented" },
-                { value: "others", label: "Others" },
-              ]}
-            />
-            <SelectInput
-              id="book"
-              name="book"
-              label="Which type of books and magazines do you prefer to watch?"
-              value={profileData.book}
-              onChange={handleProfileChange}
-              options={[
-                { value: "", label: "Select" },
-                { value: "fictional", label: "Fictional" },
-                { value: "non-fictional", label: "Non-Fictional" },
-                { value: "mystery", label: "Mystery" },
-                { value: "adventurous", label: "Adventurous" },
-                { value: "thriller", label: "Thriller" },
-                { value: "horror", label: "Horror" },
-                {
-                  value: "literary-historical",
-                  label: "Literary / Historical",
-                },
-                { value: "fairy-tales", label: "Fairy Tales" },
-                { value: "contemporary", label: "Contemporary" },
-                { value: "others", label: "Others" },
-              ]}
-            />
-            <SelectInput
-              id="higherEducation"
-              name="higherEducation"
-              label="From where you want to complete your Higher Education?*"
-              value={profileData.higherEducation}
-              onChange={handleProfileChange}
-              error={errors.higherEducation}
-              options={[
-                { value: "", label: "Select" },
-                { value: "india", label: "India" },
-                { value: "abroad", label: "Abroad" },
-                { value: "others", label: "Others" },
-              ]}
-            />
-            <TextInput
-              id="others"
-              name="others"
-              label="Other things you want to share"
-              placeholder="Other things you want to share"
-              value={profileData.others}
-              onChange={handleProfileChange}
-            />
-            <TextInput
-              id="referrenceCounsellor"
-              name="referrenceCounsellor"
-              label="Reference counsellor name"
-              placeholder="Reference counsellor name"
-              value={profileData.referrenceCounsellor}
-              onChange={handleProfileChange}
-            />
-            
-            <div className="w-full flex flex-row justify-between items-end">
-              <Button onClick={handlePrev} label="Previous" />
-              <Button onClick={handleSubmit} label="Submit" />
-            </div>
-          </>
-        )}
+    <SelectInput
+      id="movie"
+      name="movie"
+      label="What kind of movies & videos do you prefer to watch?"
+      value={profileData.movie}
+      onChange={handleProfileChange}
+      options={[
+        { value: "", label: "Select" },
+        { value: "action", label: "Action" },
+        { value: "comedy", label: "Comedy" },
+        { value: "horror", label: "Horror" },
+        { value: "mystry", label: "Mystery" },
+        { value: "thriller", label: "Thriller" },
+        { value: "romance", label: "Romance" },
+        { value: "realStoryBased", label: "Real Story Based" },
+        { value: "cooking", label: "Cooking" },
+        { value: "familyOriented", label: "Family oriented" },
+        { value: "others", label: "Others" },
+      ]}
+    />
+
+    <SelectInput
+      id="book"
+      name="book"
+      label="Which type of books and magazines do you prefer to read?"
+      value={profileData.book}
+      onChange={handleProfileChange}
+      options={[
+        { value: "", label: "Select" },
+        { value: "fictional", label: "Fictional" },
+        { value: "non-fictional", label: "Non-Fictional" },
+        { value: "mystery", label: "Mystery" },
+        { value: "adventurous", label: "Adventurous" },
+        { value: "thriller", label: "Thriller" },
+        { value: "horror", label: "Horror" },
+        { value: "literary-historical", label: "Literary / Historical" },
+        { value: "fairy-tales", label: "Fairy Tales" },
+        { value: "contemporary", label: "Contemporary" },
+        { value: "others", label: "Others" },
+      ]}
+    />
+
+    <SelectInput
+      id="higherEducation"
+      name="higherEducation"
+      label="From where do you want to complete your Higher Education?*"
+      value={profileData.higherEducation}
+      onChange={handleProfileChange}
+      error={errors.higherEducation}
+      options={[
+        { value: "", label: "Select" },
+        { value: "india", label: "India" },
+        { value: "abroad", label: "Abroad" },
+        { value: "others", label: "Others" },
+      ]}
+    />
+
+    {/* <TextInput
+      id="others"
+      name="others"
+      label="Other things you want to share"
+      placeholder="Other things you want to share"
+      value={profileData.others}
+      onChange={handleProfileChange}
+    /> */}
+
+    <TextInput
+      id="referrenceCounsellor"
+      name="referrenceCounsellor"
+      label="Reference counsellor name"
+      placeholder="Reference counsellor name"
+      value={profileData.referrenceCounsellor}
+      onChange={handleProfileChange}
+    />
+
+    <div className="w-full flex flex-row justify-between items-end">
+      <Button onClick={handlePrev} label="Previous" />
+      <Button onClick={handleSubmit} label="Submit" />
+    </div>
+  </>
+)}
       </div>
     </div>
   );
