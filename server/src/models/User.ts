@@ -21,7 +21,7 @@ const UserSchema=new Schema<IUser>({
     firstName: { type: String, required: true },
     lastName: { type: String, default: '' },
     dob:{type:String, default:''},
-    gender:{type:String, default:'',required:true},
+    gender:{type:String, default:'',},
     fatherName:{type:String, default:''},
     location:{type:String, default:''},
     mobileNumber:{type:String, default:''},
