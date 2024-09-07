@@ -10,29 +10,30 @@ interface FeatureProps {
 const features: FeatureProps[] = [
   {
     icon: <MedalIcon />,
-    title: "Accessibility",
+    title: "Expert Mentors",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+      "Connect with experienced professionals who provide personalized career advice and guidance to help you excel in your field.",
   },
   {
     icon: <MapIcon />,
-    title: "Community",
+    title: "Vibrant Community",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+      "Join a supportive network of like-minded individuals, where you can share experiences, learn, and grow together.",
   },
   {
     icon: <PlaneIcon />,
-    title: "Scalability",
+    title: "AI Career Counselor",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+      "Leverage our AI-driven career counselor to receive tailored recommendations, job insights, and learning paths based on your goals.",
   },
   {
     icon: <GiftIcon />,
-    title: "Gamification",
+    title: "Interactive Sessions",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+      "Participate in engaging workshops and sessions to enhance your skills, guided by experts and personalized for your needs.",
   },
 ];
+
 
 export const HowItWorks = () => {
   return (
