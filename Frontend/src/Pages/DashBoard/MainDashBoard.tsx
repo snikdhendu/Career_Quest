@@ -80,7 +80,7 @@ const MainDashBoard = () => {
           </div>
           <div className=" grid grid-cols-2 h-4/5  p-4">
 
-            <Link to='./mentors'
+            <Link to='/mentors'
               className="w-64 h-32 bg-white shadow-[0px_0px_15px_rgba(0,0,0,0.09)] flex justify-left items-center space-y-3 relative overflow-hidden p-4"
             >
               <div className="w-24 h-24 bg-textmain rounded-full absolute -right-5 -top-7">
@@ -109,13 +109,13 @@ const MainDashBoard = () => {
             </Link>
 
 
-            <Link to='/community'
+            <Link to='/workshops'
               className="w-64 h-32 bg-white shadow-[0px_0px_15px_rgba(0,0,0,0.09)] flex justify-left items-center space-y-3 relative overflow-hidden p-4"
             >
               <div className="w-24 h-24 bg-textmain rounded-full absolute -right-5 -top-7">
                 <p className="absolute bottom-6 left-7 text-white text-2xl">04</p>
               </div>
-              <h1 className="font-bold text-xl">Community</h1>
+              <h1 className="font-bold text-xl">Workshops</h1>
             </Link>
 
 
