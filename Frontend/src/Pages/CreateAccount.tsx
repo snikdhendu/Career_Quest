@@ -1,4 +1,4 @@
-import { useUser } from "@clerk/clerk-react";
+// import { useUser } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom";
 import  student  from "../assets/student.png";
 import school from "../assets/school.png";
@@ -6,7 +6,7 @@ import mentor from "../assets/mentor.png";
 
 
 const CreateAccount: React.FC = () => {
-  const { user } = useUser();
+  // const { user } = useUser();
   const navigate = useNavigate(); // Hook to navigate to different pages
 
   // // If no user is logged in, return null
