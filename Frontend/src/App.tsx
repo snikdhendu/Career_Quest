@@ -1,6 +1,6 @@
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Home, Error,Community,Mentors,Sessions} from './Pages';
+import { Home, Error,Community,Mentors,Sessions, Workshops} from './Pages';
 import Dashboard from './Pages/DashBoard/Dashboard';
 import CreateAccount from './Pages/CreateAccount';
 import "./App.css";
@@ -24,6 +24,7 @@ const App = () => {
           <Route path='/community' element={<Community/>}/>
           <Route path='/mentors' element={<Mentors/>}/>
           <Route path='/sessions' element={<Sessions/>}/>
+          <Route path='/workshops' element={<Workshops/>}/>
       </Routes>
     </Router>
   );

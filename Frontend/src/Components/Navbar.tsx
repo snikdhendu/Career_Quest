@@ -38,12 +38,12 @@ const routeList: RouteProps[] = [
     label: "Community",
   },
   {
-    href: "/mentors",
-    label: "Mentors",
+    href: "/workshops",
+    label: "Workshops",
   },
   {
     href: "/sessions",
-    label: "Session"
+    label: "Sessions"
   }
 ];
 
