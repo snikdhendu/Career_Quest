@@ -1,6 +1,6 @@
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Home, Error,Community,Mentors,Sessions, Workshops,Timelines} from './Pages';
+import { Home, Error,Mentors,Sessions, Workshops,Timelines} from './Pages';
 import Dashboard from './Pages/DashBoard/Dashboard';
 import CreateAccount from './Pages/CreateAccount';
 import "./App.css";
@@ -22,7 +22,7 @@ const App = () => {
           <Route path="*" element={<Error />} />
           <Route path='/createAccount' element={<CreateAccount/>}/>
           <Route path="/dashboard/*" element={<Dashboard />} />
-          <Route path='/community' element={<Community/>}/>
+          <Route path='/mentors' element={<Mentors/>}/>
           <Route path='/mentors' element={<Mentors/>}/>
           <Route path='/sessions' element={<Sessions/>}/>
           <Route path='/workshops' element={<Workshops/>}/>

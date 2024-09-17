@@ -9,7 +9,7 @@ const Signin = () => {
     <div className="min-h-screen flex justify-center items-center">
       <SignIn 
         path="/sign-in" 
-        redirectUrl="/dashboard"  
+        redirectUrl="/createAccount"  
         signUpUrl="/sign-up"
         appearance={{
           baseTheme: theme === 'dark' ? dark : undefined,
