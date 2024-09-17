@@ -7,7 +7,7 @@ const Signup = () => {
     // <SignIn />
     <div className="min-h-screen flex justify-center items-center">
     <SignUp path="/sign-up" 
-    afterSignUpUrl="/dashboard" signInUrl="/sign-in"   />
+    afterSignUpUrl="/createAccount" signInUrl="/sign-in"   />
     </div>
   );
 };
