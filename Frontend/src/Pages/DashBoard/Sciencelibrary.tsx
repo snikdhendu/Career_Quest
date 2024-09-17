@@ -1,165 +1,131 @@
-import { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ReactFlow, { MiniMap, Controls } from 'reactflow';
-import 'reactflow/dist/style.css';
 
-const initialNodes = [
-  {
-    id: '1',
-    position: { x: 0, y: 0 },
-    data: { label: 'Science' },
-    style: { backgroundColor: '#4CAF50', color: '#f1f1f1', border: '2px solid #333' }, 
-  },
-  {
-    id: '2',
-    position: { x: -300, y: 150 },
-    data: { label: 'Engineering' },
-    style: { backgroundColor: '#2196F3', color: '#f1f1f1', border: '2px solid #333' }, 
-  },
-  {
-    id: '3',
-    position: { x: 0, y: 150 },
-    data: { label: 'Medical' },
-    style: { backgroundColor: '#FFC107', color: '#333', border: '2px solid #333' },
-  },
-  {
-    id: '4',
-    position: { x: 300, y: 150 },
-    data: { label: 'Astronomer' },
-    style: { backgroundColor: '#9C27B0', color: '#f1f1f1', border: '2px solid #333' }, 
-  },
-  {
-    id: '5',
-    position: { x: -300, y: 300 },
-    data: { label: 'Physicist' },
-    style: { backgroundColor: '#FF5722', color: '#f1f1f1', border: '2px solid #333' }, 
-  },
-  {
-    id: '6',
-    position: { x: 300, y: 300 },
-    data: { label: 'Environmental Scientist' },
-    style: { backgroundColor: '#795548', color: '#f1f1f1', border: '2px solid #333' }, 
-  },
-  {
-    id: '7',
-    position: { x: -500, y: 300 },
-    data: { label: 'Civil Engineer' },
-    style: { backgroundColor: '#00BCD4', color: '#f1f1f1', border: '2px solid #333' },
-  },
-  {
-    id: '8',
-    position: { x: -300, y: 450 },
-    data: { label: 'Mechanical Engineer' },
-    style: { backgroundColor: '#607D8B', color: '#f1f1f1', border: '2px solid #333' }, 
-  },
-  {
-    id: '9',
-    position: { x: 0, y: 450 },
-    data: { label: 'Doctor' },
-    style: { backgroundColor: '#673AB7', color: '#f1f1f1', border: '2px solid #333' }, 
-  },
-  {
-    id: '10',
-    position: { x: 300, y: 450 },
-    data: { label: 'Surgeon' },
-    style: { backgroundColor: '#E91E63', color: '#f1f1f1', border: '2px solid #333' }, 
-  },
-  {
-    id: '11',
-    position: { x: -500, y: 450 },
-    data: { label: 'Electrical Engineer' },
-    style: { backgroundColor: '#CDDC39', color: '#333', border: '2px solid #333' }, 
-  },
-  {
-    id: '12',
-    position: { x: 500, y: 150 },
-    data: { label: 'B.Sc in Physics' },
-    style: { backgroundColor: '#FFEB3B', color: '#333', border: '2px solid #333' }, 
-  },
-  {
-    id: '13',
-    position: { x: 500, y: 300 },
-    data: { label: 'B.Sc in Chemistry' },
-    style: { backgroundColor: '#F44336', color: '#f1f1f1', border: '2px solid #333' }, 
-  },
-  {
-    id: '14',
-    position: { x: 500, y: 450 },
-    data: { label: 'B.Sc in Biology' },
-    style: { backgroundColor: '#3F51B5', color: '#f1f1f1', border: '2px solid #333' }, 
-  },
-];
-
-const initialEdges = [
-  { id: 'e1-2', source: '1', target: '2', type: 'smoothstep' },
-  { id: 'e1-3', source: '1', target: '3', type: 'smoothstep' },
-  { id: 'e1-4', source: '1', target: '4', type: 'smoothstep' },
-  { id: 'e2-5', source: '2', target: '5', type: 'smoothstep' },
-  { id: 'e1-6', source: '1', target: '6', type: 'smoothstep' },
-  { id: 'e2-7', source: '2', target: '7', type: 'smoothstep' },
-  { id: 'e2-8', source: '2', target: '8', type: 'smoothstep' },
-  { id: 'e3-9', source: '3', target: '9', type: 'smoothstep' },
-  { id: 'e3-10', source: '3', target: '10', type: 'smoothstep' },
-  { id: 'e2-11', source: '2', target: '11', type: 'smoothstep' },
-  { id: 'e1-12', source: '1', target: '12', type: 'smoothstep' },
-  { id: 'e1-13', source: '1', target: '13', type: 'smoothstep' },
-  { id: 'e1-14', source: '1', target: '14', type: 'smoothstep' },
-];
-
-
+const NodeCard = ({
+  title,
+  description,
+  style,
+  onClick,
+  showButton = true,
+  visible = false,
+}: {
+  title: string;
+  description: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+  showButton?: boolean;
+  visible?: boolean;
+}) => (
+  <div
+    className={`absolute border-2 border-[rgba(75,30,133,0.5)] rounded-[2em] bg-gradient-to-br from-[rgba(75,30,133,1)] to-[rgba(75,30,133,0.01)] text-white font-nunito p-[1.5em] flex justify-center items-center flex-col gap-[1em] backdrop-blur-[12px] z-10 transition-opacity duration-500 ${
+      visible ? 'opacity-100' : 'opacity-0'
+    }`}
+    style={style}
+    onClick={onClick}
+  >
+    <div>
+      <h1 className="text-[2em] font-medium">{title}</h1> 
+      <p className="text-[1em]">{description}</p>
+    </div>
+    {showButton && (
+      <button className="h-fit w-fit px-[1.5em] py-[0.5em] border-[1px] rounded-full flex justify-center items-center gap-[0.75em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
+        <p>Explore</p>
+        <svg
+          className="w-8 h-8 group-hover:translate-x-[10%] duration-300" 
+          stroke="currentColor"
+          strokeWidth="1"
+          viewBox="0 0 24 24"
+          fill="white"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          ></path>
+        </svg>
+      </button>
+    )}
+  </div>
+);
 
 const Sciencelibrary = () => {
-  const navigate = useNavigate(); 
-  const [visibleNodes, setVisibleNodes] = useState<string[]>([]);
+  const navigate = useNavigate();
+
+  const [visibleCards, setVisibleCards] = useState([false, false, false, false]); 
 
   useEffect(() => {
-    const showNodes = () => {
-      const nodeLevels = [
-        ['1'],
-        ['2', '3', '4'],
-        ['5', '6', '7', '8'],
-        ['9', '10', '11'],
-        ['12', '13', '14'],
-      ];
+    const timeoutIds: NodeJS.Timeout[] = []; 
 
-      nodeLevels.forEach((levelNodes, index) => {
-        setTimeout(() => {
-          setVisibleNodes((prev) => [...prev, ...levelNodes]);
-        }, index * 1000); 
-      });
+    // Show each card one by one with a delay
+    visibleCards.forEach((_, index) => {
+      const timeoutId = setTimeout(() => {
+        setVisibleCards((prev) =>
+          prev.map((visible, i) => (i === index ? true : visible))
+        );
+      }, index * 700); 
+      timeoutIds.push(timeoutId);
+    });
+
+    
+    return () => {
+      timeoutIds.forEach((id) => clearTimeout(id));
     };
-
-    showNodes();
   }, []);
 
-  const onNodeClick = useCallback(
-    (_event: React.MouseEvent, node: any) => {
-      if (node.id === '2') {
-        navigate('/courses/');
-      }
-    },
-    [navigate]
-  );
+  const handleNodeClick = (id: string) => {
+    switch (id) {
+      case '2':
+        navigate('/courses/engineering');
+        break;
+      case '3':
+        
+        break;
+      case '4':
+   
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
-    <div className="h-screen w-screen bg-cover bg-fixed" style={{ backgroundImage: 'linear-gradient(to bottom, #0f2027, #203a43, #2c5364)' }}>
-      <div className="h-full w-full border-0 rounded-lg">
-        <ReactFlow
-          nodes={initialNodes.filter(node => visibleNodes.includes(node.id))}
-          edges={initialEdges}
-          fitView
-          nodesDraggable={false}
-          nodesConnectable={false}
-          elementsSelectable={false}
-          onNodeClick={onNodeClick}
-          panOnDrag={true}
-          zoomOnScroll={true}
-          zoomOnPinch={true}
-          zoomOnDoubleClick={true}
-        >
-          <MiniMap />
-          <Controls />
-        </ReactFlow>
+    <div className="h-screen w-screen bg-cover bg-fixed" style={{backgroundImage: 'linear-gradient(to right, #076585, #fff)'}}>
+      <div className="relative h-full w-full">
+        <NodeCard
+          title="Science"
+          description="A wide field of study that includes Engineering, Medical, and B.Sc."
+          style={{ top: '20%', left: '50%', transform: 'translate(-50%, -50%)' }}
+          showButton={false}
+          visible={visibleCards[0]} 
+        />
+        <NodeCard
+          title="Engineering"
+          description="Explore courses in Engineering and careers."
+          style={{ top: '60%', left: '20%', transform: 'translate(-50%, -50%)' }} 
+          onClick={() => handleNodeClick('2')}
+          visible={visibleCards[1]} 
+        />
+        <NodeCard
+          title="Medical"
+          description="Explore Medical science and its vast applications."
+          style={{ top: '60%', left: '50%', transform: 'translate(-50%, -50%)' }} 
+          onClick={() => handleNodeClick('3')}
+          visible={visibleCards[2]} 
+        />
+        <NodeCard
+          title="B.Sc"
+          description="Get detailed information about B.Sc courses."
+          style={{ top: '60%', left: '80%', transform: 'translate(-50%, -50%)' }} 
+          onClick={() => handleNodeClick('4')}
+          visible={visibleCards[3]} 
+        />
+
+        <svg className="absolute top-0 left-0 w-full h-full z-0">
+          <line x1="50%" y1="28%" x2="20%" y2="50%" stroke="black" strokeWidth="1" />
+          <line x1="50%" y1="28%" x2="50%" y2="50%" stroke="black" strokeWidth="1" />
+          <line x1="50%" y1="28%" x2="80%" y2="50%" stroke="black" strokeWidth="1" />
+        </svg>
       </div>
     </div>
   );
