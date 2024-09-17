@@ -6,6 +6,7 @@ import CreateAccount from './Pages/CreateAccount';
 import "./App.css";
 import Signin from './sign-in/[[...index]]';
 import Signup from './sign-up/[[...index]]';
+import Sciencelibrary from './Pages/DashBoard/Sciencelibrary';
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
           <Route path='/workshops' element={<Workshops/>}/>
           <Route path='/timelines/eng' element={<Timelines/>}/>
           <Route path='/courses/*' element={<Timelines/>}/>
+          <Route path='/career-science' element={<Sciencelibrary/>}/>
       </Routes>
     </Router>
   );
