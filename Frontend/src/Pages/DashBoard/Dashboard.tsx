@@ -8,9 +8,10 @@ import AIchatbot from './AIchatbot'
 import { SideBox } from '../../Components';
 import Carrerlibrary from './Carrerlibrary'
 import Helpsupport from './Helpsupport';
-import Mentors from './Mentors';
+// import Mentors from './Mentors';
 // import { useFirebase } from '../../Context/FirebaseContext';
 import { useUser } from '@clerk/clerk-react';
+import Joinschool from './Joinschool';
 const Dashboard = () => {
 
     const { user } = useUser();
@@ -56,7 +57,7 @@ const Dashboard = () => {
                 <Route path='profile' element={<Profile />} />
                 <Route path='aichatbot' element={<AIchatbot />} />
                 <Route path='library' element={<Carrerlibrary />} />
-                <Route path='mentors' element={<Mentors />} />
+                <Route path='join' element={<Joinschool />} />
                 <Route path='help' element={<Helpsupport />} />
             </Routes>
 
