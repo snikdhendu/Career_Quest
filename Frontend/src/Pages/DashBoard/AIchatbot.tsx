@@ -65,7 +65,7 @@ const Chatbot: React.FC = () => {
           message.sender === 'user' ? (
             <>
               <div className="chat chat-end m-5 w-full">
-                <div className="chat-bubble chat-bubble-success"> {message.text}</div>
+                <div className="chat-bubble bg-[#b3cde0] text-black"> {message.text}</div>
               </div>
               <img
                 src={avatar}
@@ -81,7 +81,7 @@ const Chatbot: React.FC = () => {
                 className="w-10 h-10 rounded-full mr-2"
               />
               <div className="chat chat-start">
-                <div className="chat-bubble chat-bubble-primary"> {message.text}</div>
+                <div className="chat-bubble bg-[#dde8e7] text-black"> {message.text}</div>
                 
               </div>
 
@@ -135,11 +135,11 @@ const Chatbot: React.FC = () => {
             </div>
           )}
         </div>
-        <div className="p-2 flex">
+        <div className="p-2 px-6 flex gap-2">
           <input
             type="text"
             aria-label="Message input"
-            className="text-white flex-grow p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-white flex-grow p-2 px-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -147,7 +147,7 @@ const Chatbot: React.FC = () => {
           />
           <button
             onClick={handleSendMessage}
-            className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+            className="ml-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-600"
             aria-label="Send message"
           >
             Send
