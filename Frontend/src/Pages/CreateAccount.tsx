@@ -16,7 +16,7 @@ const CreateAccount: React.FC = () => {
 
   // Function to handle redirection
   const handleUserTypeClick = () => {
-    navigate(`/dashboard`); // Redirect based on user type
+    navigate(`/sign-up`); // Redirect based on user type
   };
 
   return (  
