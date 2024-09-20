@@ -34,7 +34,7 @@ const Carrerlibrary = () => {
   ];
 
   return (
-    <div className="container mx-auto justify-center items-center lg:ml-64 flex flex-col gap-10 overflow-y-auto p-6" style={{ height: '670px', width: "83%" }}>
+    <div className="container mx-auto justify-center items-center lg:ml-64 flex flex-col gap-5 overflow-y-auto p-6" style={{ height: '670px', width: "83%" }}>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 h-full justify-center items-center w-full">
         {subs.map((sub, index) => (
           <div key={index} className="group before:hover:scale-95 before:hover:h-full before:hover:w-80 before:hover:rounded-b-2xl before:transition-all before:duration-500 before:content-[''] before:w-80 before:h-24 before:rounded-t-2xl before:bg-gradient-to-r from-textmain to-white before:absolute before:top-0 w-72 h-96 relative bg-slate-200 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden">
@@ -51,6 +51,11 @@ const Carrerlibrary = () => {
           </div>
         ))}
       </div>
+
+      <div>
+        <h1 className=' text-lg font-bold text-textmain'>Note: As of now, only <span className=' text-textsecond'> "Get Started with Science"</span> is available. Feel free to explore and dive into the wonders of science!</h1>
+      </div>
+
     </div>
   );
 };

@@ -120,13 +120,17 @@ const Sciencelibrary = () => {
           onClick={() => handleNodeClick('4')}
           visible={visibleCards[3]} 
         />
-
+      <div className=' flex w-full justify-center items-center p-5'>
+        <h1 className=' text-lg font-bold text-black'>Note: As of now, only <span className=' text-white'> "Engineering Roadmap"</span> is available. Feel free to explore .</h1>
+      </div>
         <svg className="absolute top-0 left-0 w-full h-full z-0">
           <line x1="50%" y1="28%" x2="20%" y2="50%" stroke="black" strokeWidth="1" />
           <line x1="50%" y1="28%" x2="50%" y2="50%" stroke="black" strokeWidth="1" />
           <line x1="50%" y1="28%" x2="80%" y2="50%" stroke="black" strokeWidth="1" />
         </svg>
+        
       </div>
+      
     </div>
   );
 };

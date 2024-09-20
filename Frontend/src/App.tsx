@@ -7,11 +7,12 @@ import "./App.css";
 import Signin from './sign-in/[[...index]]';
 import Signup from './sign-up/[[...index]]';
 import Sciencelibrary from './Pages/DashBoard/Sciencelibrary';
-
+import DeviceCheckWrapper from './Pages/DeviceCheckWrapper';
 
 const App = () => {
 
   return (
+    <DeviceCheckWrapper>
     <Router>
       <Routes>
           <Route path='' element={<Home/>}/>
@@ -31,6 +32,7 @@ const App = () => {
           <Route path='/career-science' element={<Sciencelibrary/>}/>
       </Routes>
     </Router>
+    </DeviceCheckWrapper>
   );
 }
 
