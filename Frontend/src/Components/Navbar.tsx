@@ -153,7 +153,7 @@ export const Navbar = () => {
                   Sign in
 
                 </Link>
-                <Link to='/sign-up' className="border-2 border-teal-600 text-teal-600 font-medium py-2 px-4 rounded-lg shadow-md hover:bg-teal-50 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                <Link to='/createAccount' className="border-2 border-teal-600 text-teal-600 font-medium py-2 px-4 rounded-lg shadow-md hover:bg-teal-50 focus:outline-none focus:ring-2 focus:ring-teal-500">
                   Sign up
                 </Link>
               </div>
